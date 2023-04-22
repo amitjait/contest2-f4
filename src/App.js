@@ -1,7 +1,7 @@
 import React from "react";
 import SignIn from "./SignIn";
 import Profile from "./Profile";
-import { Routes, Route, Router, BrowserRouter } from "react-router-dom";
+import { Routes, Route, BrowserRouter } from "react-router-dom";
 
 import "./index.css"
 

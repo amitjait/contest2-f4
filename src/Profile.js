@@ -21,16 +21,14 @@ export default function Profile(){
 
         console.log("Running")
         setUser(u);
-    }, [user])
+    }, [id])
 
     
 
     return (
         <div className="container-fluid">
-            {/* <Details user = {user} /> */}
-            <Account user={user} />
             {
-                user.length === 0 ?
+                user.length > 0 ?
                 <div className="container ">
                     <Details user = {user} />
                     <Account user={user} />
@@ -39,7 +37,11 @@ export default function Profile(){
                     <Bio user={user} />
                     <Additonal user={user} />
                 </div> : <div>
-                Invalid details
+                    {/* <Account user={user} /> */}
+                        {/* <Company user={user} /> */}
+                        {/* <Bank user={user}/> */}
+                        {/* <Bio user={user} /> */}
+                        <Additonal user={user} />
                 </div> 
             }
         </div>
