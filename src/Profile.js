@@ -17,18 +17,16 @@ export default function Profile(){
     useEffect(() =>{
         fetch(`https://dummyjson.com/users/${id}`)
         .then(res => res.json())
-        .then(data => u = data)
-
-        console.log("Running")
-        setUser(u);
-    }, [id])
+        .then(data => setUser(data))
+    }, [])
 
     
 
     return (
         <div className="container-fluid">
             {
-                user.length > 0 ?
+                
+                user &&
                 <div className="container ">
                     <Details user = {user} />
                     <Account user={user} />
@@ -36,13 +34,8 @@ export default function Profile(){
                     <Bank user={user}/>
                     <Bio user={user} />
                     <Additonal user={user} />
-                </div> : <div>
-                    {/* <Account user={user} /> */}
-                        {/* <Company user={user} /> */}
-                        {/* <Bank user={user}/> */}
-                        {/* <Bio user={user} /> */}
-                        <Additonal user={user} />
                 </div> 
+                
             }
         </div>
     )
