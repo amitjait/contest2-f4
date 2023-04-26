@@ -7,7 +7,6 @@ import Account from "./Components/Account";
 import Additonal from "./Components/Additonal";
 
 
-let u = {};
 export default function Profile(){
 
     let [user, setUser] = useState({});
@@ -18,6 +17,7 @@ export default function Profile(){
         fetch(`https://dummyjson.com/users/${id}`)
         .then(res => res.json())
         .then(data => setUser(data))
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     
@@ -25,17 +25,22 @@ export default function Profile(){
     return (
         <div className="container-fluid">
             {
-                
-                user &&
+                console.log(user)
+            }
+            { 
+                Object.keys(user).length > 0 ? 
                 <div className="container ">
-                    <Details user = {user} />
+                    <Details user ={user} />
                     <Account user={user} />
                     <Company user={user} />
                     <Bank user={user}/>
                     <Bio user={user} />
                     <Additonal user={user} />
                 </div> 
-                
+                :
+                <div className="loader">
+                    <div class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+                </div>
             }
         </div>
     )

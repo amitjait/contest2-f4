@@ -2,6 +2,8 @@ import React from "react";
 
 export default function Bank({user}){
     return (
+        <>
+        {
         <div className="card p-2">
             <h1>Bank Details</h1>
             <div className="card p-2">
@@ -12,5 +14,7 @@ export default function Bank({user}){
                 <h3>IBAN : {user.bank.iban}</h3>
             </div>
         </div>
+        }
+        </>
     )
 }
